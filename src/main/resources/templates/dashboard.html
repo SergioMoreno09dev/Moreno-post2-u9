@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head><title>Dashboard</title></head>
+<body>
+<h1>Dashboard</h1>
+<p>Bienvenido, <span sec:authentication="name"></span></p>
+
+<!-- SEGURO: th:text escapa el contenido del campo nombre -->
+<!-- Si el nombre es "<script>alert(1)</script>", Thymeleaf lo convierte
+en -->
+<!-- &lt;script&gt;alert(1)&lt;/script&gt; y el navegador lo muestra como
+texto -->
+<p>Nombre: <span th:text="${usuario.nombre}"></span></p>
+<!-- INSEGURO: th:utext inserta HTML sin escapar — NUNCA usar con datos de
+usuario -->
+<!-- <p th:utext="${usuario.nombre}"></p>  ← XSS directo si el nombre tiene
+script -->
+
+<a sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">
+    Panel de Administración
+</a>
+
+<p sec:authorize="hasRole('USER')">Acceso de usuario estándar.</p>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Cerrar Sesión</button>
+</form>
+</body>
+</html>

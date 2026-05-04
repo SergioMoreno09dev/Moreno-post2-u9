@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Panel Admin</title></head>
+<body>
+<h1>Panel de Administración</h1>
+<table border="1">
+    <tr><th>ID</th><th>Nombre</th><th>Email</th><th>Rol</th><th>Activo</th></tr>
+    <tr th:each="u : ${usuarios}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.nombre}"></td>
+        <td th:text="${u.email}"></td>
+        <td th:text="${u.rol}"></td>
+        <td th:text="${u.activo}"></td>
+    </tr>
+</table>
+<a th:href="@{/dashboard}">Volver</a>
+</body>
+</html>
