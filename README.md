@@ -123,6 +123,8 @@ todos los formularios confirma que la protección está activa.
 ---
 
 ## Estructura del proyecto
+
+```plaintext
 src/main/java/com/universidad/estudiantes/
 ├── config/
 │   └── SecurityConfig.java
@@ -135,6 +137,7 @@ src/main/java/com/universidad/estudiantes/
 ├── service/
 │   ├── UsuarioService.java
 │   └── UsuarioDetailsService.java
+
 src/main/resources/
 ├── templates/
 │   ├── auth/
@@ -145,6 +148,7 @@ src/main/resources/
 │   ├── error/
 │   │   └── 403.html
 │   └── dashboard.html
+```
 
 ---
 
